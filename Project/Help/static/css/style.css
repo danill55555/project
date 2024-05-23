@@ -1,0 +1,16 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.content {
+	min-height: calc(100vh - 80px);
+}
+
+@font-face {
+    font-family: 'Font1';
+    src: url('fonts/font1.ttf') format('truetype');
+}
+
+h1 {
+    font-family: 'Font2', sans-serif;
+}

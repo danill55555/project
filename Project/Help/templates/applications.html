@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Заявки{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mt-4">Ваши заявки</h1>
+        <a href="{% url 'create_application' %}" class="btn btn-primary">Сформировать новую заявку</a>
+    </div>
+    <div class="row">
+        {% for application in applications %}
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body ">
+                    <h2 class="card-title my-2">{{ application.category }}</h2>
+                    <p class="my-2"><strong>Статус:</strong> {{ application.status.name }}</p>
+                    <p class="card-text my-2">{{ application.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="alert alert-info" role="alert">
+            У Вас нет заявок.
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

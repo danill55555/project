@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+ <div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card-body border">
+                    <h2 class="card-title text-center mb-4">Регистрация</h2>
+                     <p class="text-center mt-3 fs-5">Уже есть аккаунт? <a class="text-decoration-none" href="{% url 'login' %}">Авторизоваться</a></p>
+                     <form method="post">
+        {% csrf_token %}
+        <div class="d-flex flex-column gap-2">
+            {{ form.username.label_tag }} {{ form.username }}
+        {% if form.username.errors %}
+            <div class="alert alert-danger">
+                {{ form.username.errors }}
+            </div>
+        {% endif %}
+        </div>
+
+                         <div class="d-flex flex-column gap-2 my-2">
+
+        {{ form.last_name.label_tag }} {{ form.last_name }}
+        {% if form.last_name.errors %}
+            <div class="alert alert-danger">
+                {{ form.last_name.errors }}
+            </div>
+        {% endif %}
+                                  </div>
+
+                         <div class="d-flex flex-column gap-2 my-2">
+        {{ form.first_name.label_tag }} {{ form.first_name }}
+        {% if form.first_name.errors %}
+            <div class="alert alert-danger">
+                {{ form.first_name.errors }}
+            </div>
+        {% endif %}
+                         </div>
+
+                         <div class="d-flex flex-column gap-2 my-2">
+        {{ form.patronymic.label_tag }} {{ form.patronymic }}
+        {% if form.patronymic.errors %}
+            <div class="alert alert-danger">
+                {{ form.patronymic.errors }}
+            </div>
+        {% endif %}
+                         </div>
+
+                         <div class="d-flex flex-column gap-2 my-2">
+        {{ form.phone.label_tag }} {{ form.phone }}
+        {% if form.phone.errors %}
+            <div class="alert alert-danger">
+                {{ form.phone.errors }}
+            </div>
+        {% endif %}
+                         </div>
+
+                           <div class="d-flex flex-column gap-2 my-2">
+        {{ form.email.label_tag }} {{ form.email }}
+        {% if form.email.errors %}
+            <div class="alert alert-danger">
+                {{ form.email.errors }}
+            </div>
+        {% endif %}
+
+                                          <div class="d-flex flex-column gap-2 my-2">
+        {{ form.department.label_tag }} {{ form.department }}
+        {% if form.department.errors %}
+            <div class="alert alert-danger">
+                {{ form.department.errors }}
+            </div>
+        {% endif %}
+                           </div>
+
+                                                 <div class="d-flex flex-column gap-2 my-2">
+        {{ form.password1.label_tag }} {{ form.password1 }}
+        {% if form.password1.errors %}
+            <div class="alert alert-danger">
+                {{ form.password1.errors }}
+            </div>
+        {% endif %}
+                              </div>
+
+                             <div class="d-flex flex-column gap-2 my-2">
+        {{ form.password2.label_tag }} {{ form.password2 }}
+        {% if form.password2.errors %}
+            <div class="alert alert-danger">
+                {{ form.password2.errors }}
+            </div>
+        {% endif %}
+                                       </div>
+
+        <button type="submit" class="btn btn-primary mt-3 " style="width: 100%; height: 40px;">Зарегистрироваться</button>
+    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
